@@ -12,7 +12,7 @@ This project is currently using usexif
 - shutil
 - datetime from datetime 
 
-# Main gol
+# Main Objective
 
 The creation of this project is based on a common problem of sorting images.
 
