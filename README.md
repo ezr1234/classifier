@@ -11,3 +11,9 @@ This project is currently using usexif
 - piexif
 - shutil
 - datetime from datetime 
+
+# Main gol
+
+The creation of this project is based on a common problem of sorting images.
+
+Python was used for it being fast to code and efficient to run.
