@@ -1,3 +1,7 @@
+#Created by Enzo Zanelato Rodrigues
+#Leave yout coments on the project at the wiki on github 
+# https://github.com/ezr1234/classifier/wiki
+
 import usexif
 import datetime
 import os
