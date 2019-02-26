@@ -69,6 +69,18 @@ def listFolder():
     return folders
 
     count += 1
+
+
+def movePhoto():
+	try:
+		#Create de directory
+		os.mkdir('./'+str(yearphoto))
+		#Moves the file )to the directory
+		shutil.move(finfo, './'+str(yearphoto))
+	except Exception:
+		#Moves the file if the folder is already created 
+		shutil.move(finfo, './'+str(yearphoto))
+
     
 
 
@@ -104,42 +116,26 @@ while count < amount:
 		#Add File to an list
 		listitens.append(finfo)
 		#Gets the year of the photo
-		yearphotoJPG = getDataJPG(finfo)
+		yearphoto = getDataJPG(finfo)
 		#Appends the year to the list called YEAR
-		year.append(yearphotoJPG)
-		try:
-			#Create de directory
-			os.mkdir('./'+str(yearphotoJPG))
-			#Moves the file to the directory
-			shutil.move(finfo, './'+str(yearphotoJPG))
-			#Adds 1 to the counter
-			count += 1
-		except Exception: 
-			#Moves the file if the folder is already created
-			shutil.move(finfo, './'+str(yearphotoJPG))
-			#Adds 1 to the counter
-			count += 1
+		year.append(yearphoto)
+
+		movePhoto()
+
+		count += 1
 			
 	
 	elif filterPath(extension) == 'jpeg':
 		#Add File to an list
 		listitens.append(finfo)
 		#Gets the year of the photo
-		yearphotoJPEG = getDataJPEG(finfo)
+		yearphoto = getDataJPEG(finfo)
 		#Appends the year to the list called YEAR
-		year.append(yearphotoJPEG)
-		try:
-			#Create de directory
-			os.mkdir('./'+str(yearphotoJPEG))
-			#Moves the file )to the directory
-			shutil.move(finfo, './'+str(yearphotoJPEG))
-			#Adds 1 to the counter
-			count += 1
-		except Exception:
-			#Moves the file if the folder is already created 
-			shutil.move(finfo, './'+str(yearphotoJPEG))
-			#Adds 1 to the counter
-			count += 1
+		year.append(yearphoto)
+		
+		movePhoto()
+
+		count += 1
 
 
 	elif len(explod_file) == 1:
