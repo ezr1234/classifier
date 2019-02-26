@@ -13,7 +13,7 @@ from datetime import datetime
 
 
 
-
+#Get the year of the JPEG file 
 def getDataJPEG(file):
 		#Get the metadata from FILE(photo)
 		ret = usexif.fromfile(file)
@@ -24,7 +24,7 @@ def getDataJPEG(file):
 		#Return the year
 		return year
 
-
+#Get the year of the JPG file
 def getDataJPG(file):
 	#Load the file
 	exif_dict = piexif.load(file)
@@ -56,6 +56,7 @@ def filterPath(pathitem):
 #List that holds the folders 
 folders =[]
 
+#SECTION IN DEVELOPMENT
 def listFolder():
     count = 0
     for i in pathitens:
@@ -69,8 +70,9 @@ def listFolder():
     return folders
 
     count += 1
+#END OF DEVELOPMENT SECTION
 
-
+#Moves the photo to the correct folder 
 def movePhoto():
 	try:
 		#Create de directory
@@ -98,7 +100,10 @@ amount = int(len(pathitens))
 listitens = []
 count = 0
 year = []
-#Loop that verifies the extension of the file
+
+#Main loop
+#Splits the file to verify if it is valied
+#Then calls movePhoto() to move the photo to the correct folder labeled with the year
 while count < amount:
 
 	#Get the value in the pathitens list related to the count
