@@ -53,6 +53,24 @@ def filterPath(pathitem):
 		else:
 			return False
 
+#List that holds the folders 
+folders =[]
+
+def listFolder():
+    count = 0
+    for i in pathitens:
+		#Get the value in the pathitens list related to the count
+	    finfo = pathitens[count]
+		# Explode o arquivo em cada ponto (.)
+	    explod_file = finfo.split('.')
+		
+	    if len(explod_file) == 1:
+		    folders.append(finfo) 
+    return folders
+
+    count += 1
+    
+
 
 #Directory to work
 diretorio = '.'
@@ -122,9 +140,20 @@ while count < amount:
 			shutil.move(finfo, './'+str(yearphotoJPEG))
 			#Adds 1 to the counter
 			count += 1
-			
+
+
+	elif len(explod_file) == 1:
+		print(finfo)
+		count +=1
+		folders.append(finfo)
+
 	else: 
 		count += 1
+
+
+
+
+
 
 
 print(listitens)
