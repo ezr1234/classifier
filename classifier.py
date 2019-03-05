@@ -159,9 +159,19 @@ print(listitens)
 print(year)
 print(folders)
 
+#Iniciate the counter of the loop
+countfolders = 0
 
+#Initiate the loop that verifies the existance of photos in the folders
+while countfolders != len(folders):
+	try:
+		os.chdir(folders[countfolders])
+		print(os.getcwd())
+		countfolders +=1
 
-	
+	except Exception:
+		print(folders[countfolders] + ' is not a directory')
+		countfolders +=1
 
 
 
