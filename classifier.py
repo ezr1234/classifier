@@ -32,6 +32,8 @@ def getDataJPEG(file):
 		print('Photo '+ file + ' does not have the date that it was taken')
 		return 'No Year'
 
+
+
 #Get the year of the JPG file
 def getDataJPG(file):
 	try:
@@ -53,8 +55,6 @@ def getDataJPG(file):
 	
 
 
-
-
 #Verify the extension of the file
 def filterPath(pathitem):
 
@@ -66,6 +66,8 @@ def filterPath(pathitem):
 
 		else:
 			return False
+
+
 
 #List that holds the folders 
 folders =[]
@@ -82,7 +84,6 @@ def movePhoto():
 		shutil.move(finfo, './'+str(yearphoto))
 
     
-
 
 #Directory to work
 diretorio = '.'
