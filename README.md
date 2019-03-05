@@ -25,7 +25,6 @@ To use this software you should put the classifier.py on the folder that directl
 
 **Don't forget to install the libraries for python3.**
 
-###Command
 Command Example: python3 classifier.py *Use python3*
 
 The output will be the photos the classifier found and the year bellow it in the right order.
