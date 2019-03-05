@@ -17,6 +17,7 @@ from datetime import datetime
 
 #Get the year of the JPEG file 
 def getDataJPEG(file):
+	try:
 		#Get the metadata from FILE(photo)
 		ret = usexif.fromfile(file)
 		#Get the taken date from the photo
@@ -25,19 +26,30 @@ def getDataJPEG(file):
 		year = result.year
 		#Return the year
 		return year
+		
+	#If the photo does not have a year it alerts the user and later moves it to a folder called No Year
+	except Exception:
+		print('Photo '+ file + ' does not have the date that it was taken')
+		return 'No Year'
 
 #Get the year of the JPG file
 def getDataJPG(file):
-	#Load the file
-	exif_dict = piexif.load(file)
-	#Gets DateTimeOriginal from the Exif part
-	taken_date = exif_dict["Exif"][piexif.ExifIFD.DateTimeOriginal]
-	#Convertes de Byte result into a String one
-	date = taken_date.decode("utf-8")
-	#Convertes the string into a datetime
-	date = datetime.strptime(date, "%Y:%m:%d %H:%M:%S")
-	#Gets the year out of the datetime
-	return date.year
+	try:
+		#Load the file
+		exif_dict = piexif.load(file)
+		#Gets DateTimeOriginal from the Exif part
+		taken_date = exif_dict["Exif"][piexif.ExifIFD.DateTimeOriginal]
+		#Convertes de Byte result into a String one
+		date = taken_date.decode("utf-8")
+		#Convertes the string into a datetime
+		date = datetime.strptime(date, "%Y:%m:%d %H:%M:%S")
+		#Gets the year out of the datetime
+		return date.year
+
+	#If the photo does not have a year it alerts the user and later moves it to a folder called No Year
+	except Exception:
+		print('Photo ' + file +' does not have the date that it was taken')
+		return 'No Year'
 	
 
 
@@ -57,22 +69,6 @@ def filterPath(pathitem):
 
 #List that holds the folders 
 folders =[]
-
-#SECTION IN DEVELOPMENT
-def listFolder():
-    count = 0
-    for i in pathitens:
-		#Get the value in the pathitens list related to the count
-	    finfo = pathitens[count]
-		# Explode o arquivo em cada ponto (.)
-	    explod_file = finfo.split('.')
-		
-	    if len(explod_file) == 1:
-		    folders.append(finfo) 
-    return folders
-
-    count += 1
-#END OF DEVELOPMENT SECTION
 
 #Moves the photo to the correct folder 
 def movePhoto():
@@ -146,7 +142,6 @@ while count < amount:
 
 
 	elif len(explod_file) == 1:
-		print(finfo)
 		count +=1
 		folders.append(finfo)
 
@@ -161,6 +156,7 @@ while count < amount:
 
 print(listitens)
 print(year)
+print(folders)
 
 
 
