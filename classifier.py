@@ -163,15 +163,17 @@ print(folders)
 countfolders = 0
 
 #Initiate the loop that verifies the existance of photos in the folders
+#SECTION IN DEVELOPMENT
 while countfolders != len(folders):
 	try:
 		os.chdir(folders[countfolders])
-		print(os.getcwd())
+		#print(os.getcwd())
 		countfolders +=1
 
 	except Exception:
-		print(folders[countfolders] + ' is not a directory')
+		#print(folders[countfolders] + ' is not a directory')
 		countfolders +=1
 
+#END OF DEVELOPMENT SECTION
 
 
