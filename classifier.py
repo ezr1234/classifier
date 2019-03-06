@@ -1,7 +1,7 @@
 #Created by Enzo Zanelato Rodrigues
 #Leave yout coments on the project at the wiki on github 
 # https://github.com/ezr1234/classifier/wiki
-#Version = 1.0
+#Version = 1.2
 
 
 import usexif
