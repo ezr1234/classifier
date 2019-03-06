@@ -7,8 +7,6 @@ This project is currently using
 - usexif
 - datetime
 - os
-- time
-- exifread
 - piexif
 - shutil
 - datetime from datetime 
@@ -25,10 +23,11 @@ To use this software you should put the classifier.py on the folder that directl
 
 **Don't forget to install the libraries for python3.**
 
-Command Example: python3 classifier.py *Use python3*
+Command Example: python3 classifier.py 
 
-The output will be the photos the classifier found and the year bellow it in the right order.
-In the 1.2 version was implemented the **No Year** detection. The program will move all the photos he couldn't find the TakenYear to a No Year folder.
+*Use python3*
+
+In version 2.0 was removed the No Year detection but now the program can organize in months.
 
 #Recomendations 
 

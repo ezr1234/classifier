@@ -7,8 +7,6 @@
 import usexif
 import datetime
 import os
-import time
-#import exifread
 import piexif
 import shutil
 from datetime import datetime
@@ -29,10 +27,11 @@ def getDataJPEG(file):
 	#If the photo does not have a year it alerts the user and later moves it to a folder called No Year
 	except Exception:
 		print('Photo '+ file + ' does not have the date that it was taken')
-		return 'No Year'
 
 
 
+
+#Gets the year and month of a JPG photo
 def getDataJPG(file):
 	try:
 		#Load the file
@@ -52,20 +51,31 @@ def getDataJPG(file):
 		print('Photo ' + file +' does not have the date that it was taken')
 
 
+
+
+#Verifies the extension and sends the file to getDataJPG or getDataJPEG to get the year and month 
 def filterPath(extension,file):
     if extension == "jpg" or extension == 'JPG':
         return getDataJPG(file)
     elif extension == "jpeg" or extension == "JPEG":
         return getDataJPEG(file)
     
-        
+
+#Function that moves the photos
 def movePhoto(year,month):
     try:
+		#Makes the directory year
         os.mkdir('./'+str(year))
+		#Makes the subdirectory of year called month
         os.mkdir('./'+str(year)+'/'+str(month))
+		#Moves the photo
         shutil.move(finfo, './'+str(year)+'/'+str(month))
     except Exception:
+		#Moves the photo if the folder is already created 
         shutil.move(finfo, './'+str(year)+'/'+str(month))
+
+
+
 
 diretorio = "."
 
@@ -75,6 +85,9 @@ pathitens = os.listdir(diretorio)
 #Get the number of files in the folder
 amount = int(len(pathitens))
 
+
+
+
 for i in range(amount):
 
     finfo = pathitens[i]
@@ -82,10 +95,14 @@ for i in range(amount):
     explod_file = finfo.split('.')
     #Only the extension of the file
     extension = explod_file[-1]
-    
+	
+	#Sends the file to filterPath to verify if it is a JPG ou JPEG
     date = filterPath(extension,finfo)
-    if date != None: 
-        movePhoto(date[0],date[1])
+	
+	#Gets the results and then calls the function to move the photo
+    if date != None: movePhoto(date[0],date[1])
 
     
+
+
 print('Done')
