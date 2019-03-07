@@ -14,7 +14,7 @@ import shutil
 from datetime import datetime
 
 
-
+ini = time.time()
 #Get the year of the JPEG file 
 def getDataJPEG(file):
 	try:
@@ -151,13 +151,14 @@ while count < amount:
 
 
 
-
+end = time.time()
 
 
 
 print(listitens)
 print(year)
 print(folders)
+print(end-ini)
 
 #Iniciate the counter of the loop
 countfolders = 0
