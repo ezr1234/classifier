@@ -5,6 +5,7 @@ Image classifier made with python 3
 
 This project is currently using 
 - usexif
+- time
 - datetime
 - os
 - piexif

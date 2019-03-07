@@ -3,7 +3,7 @@
 # https://github.com/ezr1234/classifier/wiki
 #Version = 2.0
 
-
+import time
 import usexif
 import datetime
 import os
@@ -11,7 +11,7 @@ import piexif
 import shutil
 from datetime import datetime
 
-
+ini = time.time()
 #Get the year of the JPEG file 
 def getDataJPEG(file):
 	try:
@@ -103,6 +103,9 @@ for i in range(amount):
     if date != None: movePhoto(date[0],date[1])
 
     
-
+end = time.time()
 
 print('Done')
+
+#Print the time it took to run the program
+print(end-ini)
